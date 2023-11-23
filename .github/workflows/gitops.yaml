@@ -51,7 +51,7 @@ jobs:
         git config --global user.email dummy@example.com
 
         # マニフェストリポジトリをクローン
-        git clone -b dev "https://github.com/${GITHUB_USER}/${GITHUB_REPO_MANIFEST}.git" manifest
+        git clone -b main "https://github.com/${GITHUB_USER}/${GITHUB_REPO_MANIFEST}.git" manifest
         cd manifest
 
         # Dockerイメージタグの更新
