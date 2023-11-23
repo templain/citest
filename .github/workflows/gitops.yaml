@@ -66,4 +66,4 @@ jobs:
         git add .
         git commit -m "${DOCKER_IMAGE}:${GITHUB_SHA} (https://github.com/${GITHUB_USER}/${GITHUB_REPO_APP}/tree/${GITHUB_SHA})"
         git push "https://${GITHUB_USER}:${{ secrets.GHP_TOKEN }}@github.com/${GITHUB_USER}/${GITHUB_REPO_MANIFEST}" "${BRANCH_NAME}"
-        GITHUB_TOKEN=${{ secrets.GHP_TOKEN }} ../gh_1.11.0_linux_amd64/bin/gh pr create -B dev -H "${BRANCH_NAME}" -t "${PR_TITLE}" -b "${PR_BODY}"
+        GITHUB_TOKEN=${{ secrets.GHP_TOKEN }} ../gh_1.11.0_linux_amd64/bin/gh pr create -B main -H "${BRANCH_NAME}" -t "${PR_TITLE}" -b "${PR_BODY}"
