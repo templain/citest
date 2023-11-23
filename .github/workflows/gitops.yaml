@@ -3,7 +3,7 @@ name: gitops
 on:
   push:
     branches:
-    - master
+    - main
 
 env:
   GITHUB_USER: templain # 【要設定】GitHubのユーザ名
