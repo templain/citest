@@ -13,7 +13,24 @@ env:
   DOCKERHUB_REPO: citest # 【要設定】DockerHub上のリポジトリ名
 
 jobs:
-  docker:
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest responder typesystem==0.2.5
+    - name: PyTest
+      run: |
+        python -m pytest test --junit-xml results/pytest.xml
+
+  docker_image_build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
