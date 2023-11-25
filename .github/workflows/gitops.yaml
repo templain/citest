@@ -25,10 +25,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest responder typesystem==0.2.5
+        pip install responder typesystem==0.2.5 starlette pytest httpx
     - name: PyTest
       run: |
-        python -m pytest test --junit-xml results/pytest.xml
+        SAMPLEAPP_MESSAGE="Hello, World" python -m pytest test --junit-xml results/pytest.xml
 
   docker_image_build:
     runs-on: ubuntu-latest
