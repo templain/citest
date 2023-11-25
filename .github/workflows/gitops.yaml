@@ -44,6 +44,11 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       with:
         junit_files: artifacts/**/*.xml
+      permissions:
+        contents: read
+        issues: read
+        checks: write
+        pull-requests: write
 
   docker_image_build:
     runs-on: ubuntu-latest
