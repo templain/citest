@@ -15,6 +15,11 @@ env:
 jobs:
   unit_test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -44,11 +49,6 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       with:
         junit_files: artifacts/**/*.xml
-      permissions:
-        contents: read
-        issues: read
-        checks: write
-        pull-requests: write
 
   docker_image_build:
     runs-on: ubuntu-latest
